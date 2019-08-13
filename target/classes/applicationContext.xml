@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+<!--&lt;!&ndash;    lazy-init() 懒加载,什么时候用什么时候Spring容器初始化,默认是立即加载&ndash;&gt;-->
+<!--    <bean id="app" class="com.vip.app.entity.User" lazy-init="false">-->
+<!--        <property name="username" value="王文俊"/>-->
+<!--    </bean>-->
+<!--&lt;!&ndash;    scope 选项:1.property:每次都是创建对象-->
+<!--                  2.singleton:单例模式&ndash;&gt;-->
+<!--&lt;!&ndash;   init-method :初始化对象完成之后即调完构造方法之后立即执行的方法-->
+<!--       destroy-method :spring销毁对象之前调用的方法&ndash;&gt;-->
+<!--    <bean id="user" class="com.vip.app.entity.User" init-method="init" destroy-method="close">-->
+
+<!--    </bean>-->
+<!--    开启注解 base-package只扫描基础包 一般不要跟系统的包一致 也不要过短-->
+    <context:component-scan base-package="com.vip.app">
+
+    </context:component-scan>
+<!--<bean id="address" class="com.vip.app.Address">-->
+<!--    <constructor-arg name="point" value="广州市">-->
+<!--    </constructor-arg>-->
+<!--    <property name="point" value="wangwenjunzhijia">-->
+<!--    </property>-->
+<!--</bean>-->
+<!--    根据属性的名字 byName
+        根据类型 byType
+        根据构造方法 constructor-->
+    <bean id="user" class="com.vip.app.entity.User" autowire="byName">
+
+    </bean>
+
+</beans>
